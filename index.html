@@ -2,739 +2,925 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>RAM GAMES 🎮</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, Tahoma, sans-serif;
-            background:
-                radial-gradient(circle at 10% 0%, #263867 0%, transparent 35%),
-                radial-gradient(circle at 90% 0%, #40205c 0%, transparent 30%),
-                #080b14;
-            color: white;
-            min-height: 100vh;
-        }
-
-        /* =========================
-           HOME
-        ========================= */
-
-        #homePage {
-            display: block;
-        }
-
-        header {
-            text-align: center;
-            padding: 70px 20px 50px;
-        }
-
-        .logo {
-            font-size: 70px;
-            margin-bottom: 15px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        header h1 {
-            font-size: 50px;
-            letter-spacing: 5px;
-            margin-bottom: 12px;
-        }
-
-        header p {
-            color: #9ca8c5;
-            font-size: 18px;
-        }
-
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: auto;
-            padding-bottom: 60px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            margin-bottom: 28px;
-        }
-
-        /* =========================
-           GAME CARDS
-        ========================= */
-
-        .games {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(280px, 1fr)
-            );
-            gap: 25px;
-        }
-
-        .game-card {
-            background: rgba(19, 27, 48, 0.9);
-            border: 1px solid #2d3a5e;
-            border-radius: 20px;
-            overflow: hidden;
-
-            transition:
-                transform 0.25s,
-                box-shadow 0.25s,
-                border-color 0.25s;
-        }
-
-        .game-card:hover {
-            transform: translateY(-8px);
-
-            border-color: #39c5ff;
-
-            box-shadow:
-                0 20px 50px rgba(
-                    0,
-                    180,
-                    255,
-                    0.16
-                );
-        }
-
-        .game-cover {
-            height: 190px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 75px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #121a32,
-                    #293760
-                );
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .game-info {
-            padding: 22px;
-        }
+<title>RAM GAMES</title>
 
-        .game-info h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
+<style>
 
-        .game-info p {
-            color: #929dbc;
-            margin-bottom: 20px;
-        }
-
-        .play-btn {
-            width: 100%;
-            border: none;
-            border-radius: 12px;
-
-            padding: 13px;
+* {
+    box-sizing: border-box;
+}
 
-            color: white;
-            font-size: 15px;
-            font-weight: bold;
+body {
+    margin: 0;
+    background: #faf9f6;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
 
-            cursor: pointer;
+/* =========================
+   MAIN PAGE
+========================= */
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #00aaff,
-                    #694cff
-                );
+.page {
+    width: calc(100% - 50px);
+    max-width: 1600px;
+    margin: 25px auto;
 
-            transition:
-                transform 0.2s,
-                box-shadow 0.2s;
-        }
+    background: #ffffff;
 
-        .play-btn:hover {
-            transform: scale(1.03);
+    border: 1px solid #f3dfb7;
+    border-radius: 28px;
 
-            box-shadow:
-                0 10px 30px rgba(
-                    50,
-                    150,
-                    255,
-                    0.35
-                );
-        }
+    padding: 35px;
 
-        /* =========================
-           GAME PAGE
-        ========================= */
+    min-height: calc(100vh - 50px);
 
-        #gamePage {
-            display: none;
+    box-shadow:
+        0 5px 25px rgba(190, 130, 30, 0.06);
+}
 
-            width: 94%;
-            max-width: 1450px;
 
-            margin: auto;
-            padding: 25px 0 40px;
-        }
+/* =========================
+   HEADER
+========================= */
 
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-            gap: 15px;
-            flex-wrap: wrap;
+    margin-bottom: 45px;
+}
 
-            margin-bottom: 15px;
-        }
+.brand h1 {
+    margin: 0;
 
-        .game-title {
-            font-size: 27px;
-            font-weight: bold;
-        }
+    font-size: 40px;
 
-        .game-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    color: #c98417;
 
-        .control-btn {
-            border: 1px solid #344263;
+    font-weight: 700;
 
-            background: #151d34;
-            color: white;
+    letter-spacing: 1px;
+}
 
-            padding: 10px 15px;
+.brand p {
+    margin-top: 8px;
 
-            border-radius: 10px;
+    color: #b58a51;
 
-            cursor: pointer;
+    font-size: 14px;
+}
 
-            font-size: 14px;
 
-            transition: 0.2s;
-        }
+/* =========================
+   ADMIN BUTTON
+========================= */
 
-        .control-btn:hover {
-            background: #263252;
-        }
+.admin-btn {
+    background: #fffaf1;
 
-        .back-btn {
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff4757,
-                    #d63031
-                );
+    border: 1px solid #f3d8a5;
 
-            border: none;
-        }
+    color: #c98417;
 
-        .game-frame {
-            width: 100%;
-            height: 76vh;
-            min-height: 500px;
+    border-radius: 30px;
 
-            background: black;
+    padding: 12px 28px;
 
-            border-radius: 18px;
+    font-size: 15px;
 
-            overflow: hidden;
+    cursor: pointer;
 
-            border: 1px solid #303b5c;
+    transition: 0.2s;
+}
 
-            box-shadow:
-                0 20px 70px rgba(
-                    0,
-                    0,
-                    0,
-                    0.5
-                );
-        }
+.admin-btn:hover {
+    background: #fff3dc;
 
-        iframe {
-            width: 100%;
-            height: 100%;
+    transform: translateY(-2px);
+}
 
-            border: none;
 
-            background: white;
-        }
+/* =========================
+   TITLE
+========================= */
 
-        /* =========================
-           FOOTER
-        ========================= */
+.games-title {
+    color: #c98417;
 
-        footer {
-            text-align: center;
+    font-size: 24px;
 
-            padding: 30px;
+    margin-bottom: 25px;
+}
 
-            color: #66718e;
 
-            border-top:
-                1px solid #1c2540;
-        }
+/* =========================
+   GAMES GRID
+========================= */
 
-        /* =========================
-           MOBILE
-        ========================= */
+.games {
+    display: grid;
 
-        @media (max-width: 600px) {
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(270px, 1fr)
+        );
 
-            header {
-                padding-top: 45px;
-            }
+    gap: 22px;
+}
 
-            header h1 {
-                font-size: 35px;
-            }
 
-            .logo {
-                font-size: 50px;
-            }
+/* =========================
+   GAME CARD
+========================= */
 
-            .game-frame {
-                height: 70vh;
-                min-height: 400px;
-            }
+.game-card {
+    border: 1px solid #f0dfc2;
 
-            .game-title {
-                font-size: 21px;
-            }
-        }
+    border-radius: 20px;
 
-        @keyframes float {
+    background: #fffdfa;
 
-            0% {
-                transform: translateY(0);
-            }
+    overflow: hidden;
 
-            50% {
-                transform: translateY(-10px);
-            }
+    transition: 0.25s ease;
+}
 
-            100% {
-                transform: translateY(0);
-            }
+.game-card:hover {
+    transform: translateY(-5px);
 
-        }
-    </style>
+    border-color: #e5b96d;
+
+    box-shadow:
+        0 12px 30px
+        rgba(180, 120, 30, 0.10);
+}
+
+
+/* =========================
+   GAME COVER
+========================= */
+
+.game-cover {
+    height: 170px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf1,
+            #fff1d8
+        );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-bottom:
+        1px solid #f1dfc3;
+}
+
+.cover-text {
+    font-size: 23px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #d09026;
+}
+
+
+/* =========================
+   GAME CONTENT
+========================= */
+
+.game-content {
+    padding: 22px;
+}
+
+.game-content h2 {
+    margin: 0 0 9px;
+
+    color: #b97812;
+
+    font-size: 20px;
+}
+
+.game-content p {
+    margin: 0 0 20px;
+
+    color: #8f8a80;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+.play {
+    width: 100%;
+
+    border: none;
+
+    background: #c98417;
+
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.play:hover {
+    background: #b6750e;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   GAME PAGE
+========================= */
+
+#gamePage {
+    display: none;
+}
+
+.game-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.game-name {
+    color: #c98417;
+
+    font-size: 27px;
+
+    font-weight: bold;
+}
+
+.game-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================
+   GAME ACTION BUTTONS
+========================= */
+
+.action {
+    border: 1px solid #efd7ad;
+
+    background: #fffaf1;
+
+    color: #b97812;
+
+    border-radius: 12px;
+
+    padding: 10px 17px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.action:hover {
+    background: #fff0d5;
+}
+
+.back {
+    background: #c98417;
+
+    color: white;
+
+    border-color: #c98417;
+}
+
+.back:hover {
+    background: #b6750e;
+}
+
+
+/* =========================
+   GAME FRAME
+========================= */
+
+.game-box {
+    width: 100%;
+
+    height: 75vh;
+
+    min-height: 500px;
+
+    border: 1px solid #efd9b4;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: white;
+
+    box-shadow:
+        0 10px 35px
+        rgba(180, 120, 30, 0.07);
+}
+
+iframe {
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+    background: white;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 45px;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid #f1e4ce;
+
+    text-align: center;
+
+    color: #a59a87;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 650px) {
+
+    .page {
+        width: calc(100% - 20px);
+
+        margin: 10px auto;
+
+        padding: 22px;
+
+        border-radius: 20px;
+    }
+
+    header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+    }
+
+    .brand h1 {
+        font-size: 30px;
+    }
+
+    .games {
+        grid-template-columns: 1fr;
+    }
+
+    .game-box {
+        min-height: 400px;
+
+        height: 70vh;
+    }
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
+<div class="page">
+
+
+<!-- =====================================================
      HOME PAGE
-================================================== -->
+===================================================== -->
 
-<div id="homePage">
+<section id="homePage">
 
-    <header>
 
-        <div class="logo">
-            🎮
-        </div>
+<header>
 
-        <h1>
-            RAM GAMES
-        </h1>
 
-        <p>
-            بازی‌های ساخته شده توسط RAM
-        </p>
+<div class="brand">
 
-    </header>
+<h1>
+RAM GAMES
+</h1>
 
+<p>
+مجموعه بازی‌های RAM
+</p>
 
-    <main class="container">
+</div>
 
-        <h2 class="section-title">
-            🎮 بازی‌ها
-        </h2>
 
+<button
+class="admin-btn"
+onclick="adminLogin()"
+>
+مدیریت بازی‌ها
+</button>
 
-        <div class="games">
 
+</header>
 
-            <!-- GAME 1 -->
 
-            <div class="game-card">
+<h2 class="games-title">
+بازی‌ها
+</h2>
 
-                <div class="game-cover">
-                    🧙
-                </div>
 
-                <div class="game-info">
+<div class="games">
 
-                    <h3>
-                        GAME FOR KASRA
-                    </h3>
 
-                    <p>
-                        یک بازی مخصوص کسرا
-                    </p>
+<!-- =====================================================
+     GAME 1
+===================================================== -->
 
-                    <button
-                        class="play-btn"
-                        onclick="openGame(
-                            'GAME FOR KASRA.html',
-                            'GAME FOR KASRA'
-                        )"
-                    >
-                        ▶ بازی کردن
-                    </button>
+<div class="game-card">
 
-                </div>
 
-            </div>
+<div class="game-cover">
 
+<div class="cover-text">
+GAME FOR KASRA
+</div>
 
+</div>
 
-            <!-- GAME 2 -->
 
-            <div class="game-card">
+<div class="game-content">
 
-                <div class="game-cover">
-                    🐱
-                </div>
+<h2>
+GAME FOR KASRA
+</h2>
 
-                <div class="game-info">
+<p>
+بازی ساخته شده برای کسرا
+</p>
 
-                    <h3>
-                        Jelly Cat
-                    </h3>
 
-                    <p>
-                        Jelly Cat Adventure
-                    </p>
+<button
+class="play"
+onclick="openGame(
+'GAME FOR KASRA.html',
+'GAME FOR KASRA'
+)"
+>
+بازی کردن
+</button>
 
-                    <button
-                        class="play-btn"
-                        onclick="openGame(
-                            'Jelly cat.html',
-                            'Jelly Cat'
-                        )"
-                    >
-                        ▶ بازی کردن
-                    </button>
 
-                </div>
-
-            </div>
-
-
-
-            <!-- GAME 3 -->
-
-            <div class="game-card">
-
-                <div class="game-cover">
-                    ⛏️
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        MINECRAFT RUN
-                    </h3>
-
-                    <p>
-                        Minecraft Run
-                    </p>
-
-                    <button
-                        class="play-btn"
-                        onclick="openGame(
-                            'MINECRAFT RUN.html',
-                            'Minecraft Run'
-                        )"
-                    >
-                        ▶ بازی کردن
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- GAME 4 -->
-
-            <div class="game-card">
-
-                <div class="game-cover">
-                    🖱️
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        Minecraft Click
-                    </h3>
-
-                    <p>
-                        یک بازی کلیکی
-                    </p>
-
-                    <button
-                        class="play-btn"
-                        onclick="openGame(
-                            'Minecraft Click.html',
-                            'Minecraft Click'
-                        )"
-                    >
-                        ▶ بازی کردن
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- GAME 5 -->
-
-            <div class="game-card">
-
-                <div class="game-cover">
-                    🏎️
-                </div>
-
-                <div class="game-info">
-
-                    <h3>
-                        MMO RACE
-                    </h3>
-
-                    <p>
-                        مسابقه‌ای هیجان‌انگیز
-                    </p>
-
-                    <button
-                        class="play-btn"
-                        onclick="openGame(
-                            '☁️ MMO RACE ☁️.html',
-                            'MMO RACE'
-                        )"
-                    >
-                        ▶ بازی کردن
-                    </button>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </main>
-
-
-    <footer>
-
-        ساخته شده با ❤️ توسط RAM
-
-    </footer>
+</div>
 
 </div>
 
 
 
-<!-- ==================================================
-     GAME PAGE
-================================================== -->
+<!-- =====================================================
+     GAME 2
+===================================================== -->
 
-<section id="gamePage">
-
-
-    <div class="game-header">
-
-        <div
-            class="game-title"
-            id="gameTitle"
-        >
-            🎮 بازی
-        </div>
+<div class="game-card">
 
 
-        <div class="game-buttons">
+<div class="game-cover">
 
-            <button
-                class="control-btn back-btn"
-                onclick="goHome()"
-            >
-                ↩ بازگشت
-            </button>
+<div class="cover-text">
+JELLY CAT
+</div>
 
-
-            <button
-                class="control-btn"
-                onclick="openNewTab()"
-            >
-                ↗ باز کردن در تب جدید
-            </button>
+</div>
 
 
-            <button
-                class="control-btn"
-                onclick="fullscreenGame()"
-            >
-                ⛶ تمام صفحه
-            </button>
+<div class="game-content">
 
-        </div>
+<h2>
+Jelly Cat
+</h2>
 
-    </div>
+<p>
+یک بازی جذاب و سرگرم‌کننده
+</p>
 
 
-    <div class="game-frame">
+<button
+class="play"
+onclick="openGame(
+'Jelly cat.html',
+'Jelly Cat'
+)"
+>
+بازی کردن
+</button>
 
-        <iframe
-            id="gameFrame"
-            allowfullscreen
-            allow="fullscreen"
-        ></iframe>
 
-    </div>
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     GAME 3
+===================================================== -->
+
+<div class="game-card">
+
+
+<div class="game-cover">
+
+<div class="cover-text">
+MINECRAFT RUN
+</div>
+
+</div>
+
+
+<div class="game-content">
+
+<h2>
+Minecraft Run
+</h2>
+
+<p>
+Minecraft Run
+</p>
+
+
+<button
+class="play"
+onclick="openGame(
+'MINECRAFT RUN.html',
+'Minecraft Run'
+)"
+>
+بازی کردن
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     GAME 4
+===================================================== -->
+
+<div class="game-card">
+
+
+<div class="game-cover">
+
+<div class="cover-text">
+MINECRAFT CLICK
+</div>
+
+</div>
+
+
+<div class="game-content">
+
+<h2>
+Minecraft Click
+</h2>
+
+<p>
+یک بازی کلیکی
+</p>
+
+
+<button
+class="play"
+onclick="openGame(
+'Minecraft Click.html',
+'Minecraft Click'
+)"
+>
+بازی کردن
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     GAME 5
+===================================================== -->
+
+<div class="game-card">
+
+
+<div class="game-cover">
+
+<div class="cover-text">
+MMO RACE
+</div>
+
+</div>
+
+
+<div class="game-content">
+
+<h2>
+MMO RACE
+</h2>
+
+<p>
+بازی مسابقه‌ای MMO
+</p>
+
+
+<button
+class="play"
+onclick="openGame(
+'MMO RACE.html',
+'MMO RACE'
+)"
+>
+بازی کردن
+</button>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+RAM GAMES — ساخته شده توسط RAM
+
+</footer>
+
 
 </section>
 
 
 
+<!-- =====================================================
+     GAME PAGE
+===================================================== -->
+
+<section id="gamePage">
+
+
+<div class="game-top">
+
+
+<div
+class="game-name"
+id="gameName"
+>
+GAME
+</div>
+
+
+<div class="game-actions">
+
+
+<button
+class="action back"
+onclick="goHome()"
+>
+بازگشت
+</button>
+
+
+<button
+class="action"
+onclick="openNewTab()"
+>
+باز کردن در تب جدید
+</button>
+
+
+<button
+class="action"
+onclick="fullscreenGame()"
+>
+تمام صفحه
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<div class="game-box">
+
+
+<iframe
+id="gameFrame"
+allowfullscreen
+allow="fullscreen"
+></iframe>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
 <script>
 
-    let currentGame = "";
+
+/* =====================================================
+   CURRENT GAME
+===================================================== */
+
+let currentGame = "";
 
 
-    /* ================================================
-       OPEN GAME INSIDE WEBSITE
-    ================================================= */
+/* =====================================================
+   OPEN GAME
+===================================================== */
 
-    function openGame(file, title) {
+function openGame(file, name) {
 
-        currentGame = file;
-
-
-        document.getElementById(
-            "homePage"
-        ).style.display = "none";
+    currentGame = file;
 
 
-        document.getElementById(
-            "gamePage"
-        ).style.display = "block";
+    document.getElementById(
+        "homePage"
+    ).style.display = "none";
 
 
-        document.getElementById(
-            "gameTitle"
-        ).textContent = "🎮 " + title;
+    document.getElementById(
+        "gamePage"
+    ).style.display = "block";
 
 
-        document.getElementById(
-            "gameFrame"
-        ).src = encodeURI(file);
+    document.getElementById(
+        "gameName"
+    ).textContent = name;
 
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    document.getElementById(
+        "gameFrame"
+    ).src = encodeURI(file);
 
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   GO HOME
+===================================================== */
+
+function goHome() {
+
+    document.getElementById(
+        "gameFrame"
+    ).src = "";
+
+
+    document.getElementById(
+        "gamePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "homePage"
+    ).style.display = "block";
+
+
+    currentGame = "";
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   OPEN IN NEW TAB
+===================================================== */
+
+function openNewTab() {
+
+    if (!currentGame) {
+        return;
     }
 
 
+    window.open(
+        encodeURI(currentGame),
+        "_blank"
+    );
 
-    /* ================================================
-       BACK TO HOME
-    ================================================= */
+}
 
-    function goHome() {
 
+/* =====================================================
+   FULLSCREEN
+===================================================== */
+
+function fullscreenGame() {
+
+    const frame =
         document.getElementById(
             "gameFrame"
-        ).src = "";
-
-
-        document.getElementById(
-            "gamePage"
-        ).style.display = "none";
-
-
-        document.getElementById(
-            "homePage"
-        ).style.display = "block";
-
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-
-
-
-    /* ================================================
-       OPEN GAME IN NEW TAB
-    ================================================= */
-
-    function openNewTab() {
-
-        if (!currentGame) {
-            return;
-        }
-
-
-        window.open(
-            encodeURI(currentGame),
-            "_blank"
         );
 
-    }
 
+    if (frame.requestFullscreen) {
 
-
-    /* ================================================
-       FULLSCREEN
-    ================================================= */
-
-    function fullscreenGame() {
-
-        const frame =
-            document.getElementById(
-                "gameFrame"
-            );
-
-
-        if (frame.requestFullscreen) {
-
-            frame.requestFullscreen();
-
-        }
-
-        else if (
-            frame.webkitRequestFullscreen
-        ) {
-
-            frame.webkitRequestFullscreen();
-
-        }
+        frame.requestFullscreen();
 
     }
+
+    else if (
+        frame.webkitRequestFullscreen
+    ) {
+
+        frame.webkitRequestFullscreen();
+
+    }
+
+}
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+function adminLogin() {
+
+    alert(
+        "بخش مدیریت بازی‌ها به‌زودی فعال می‌شود."
+    );
+
+}
 
 </script>
 
